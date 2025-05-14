@@ -105,15 +105,15 @@
                 </div>
                 <div class="footer-column">
                     <!-- <a href="https://www.polywork.com/anniedotexe" class="footer-button">
-                                        <img src="./img/polywork.svg" alt="PolyWork Icon">
+                                        <img src="{{ asset("img/polywork.svg") }}" alt="PolyWork Icon">
                                         Updates
                                     </a> -->
                     <a href="https://anniedotexe.mypixieset.com/" class="footer-button">
-                        <img src="./img/camera.svg" alt="Camera Icon">
+                        <img src="{{ asset("img/camera.svg") }}" alt="Camera Icon">
                         Photos
                     </a>
                     <a href="mailto:anniewu2303@gmail.com" class="footer-button">
-                        <img src="./img/email.svg" alt="Email Icon">
+                        <img src="{{ asset("img/email.svg") }}" alt="Email Icon">
                         Contact
                     </a>
                 </div>
