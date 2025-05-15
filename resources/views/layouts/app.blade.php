@@ -40,11 +40,11 @@
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
 
-        <link rel="stylesheet" href="./css/main.css" type="text/css">
-        <link rel="stylesheet" href="./css/header.css" type="text/css">
-        <link rel="stylesheet" href="./css/home.css" type="text/css">
-        <link rel="stylesheet" href="./css/projects.css" type="text/css">
-        <link rel="stylesheet" href="./css/footer.css" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/header.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/home.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/projects.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/footer.css') }}" type="text/css">
     </head>
 
     <body>
@@ -94,11 +94,11 @@
                 </div>
                 <div class="footer-column">
                     <a href="/about" class="footer-button">
-                        <img src="./img/smile.svg" alt="Smile Icon">
+                        <img src="{{ asset('img/smile.svg') }}" alt="Smile Icon">
                         About
                     </a>
                     <a href="/projects" class="footer-button">
-                        <img src="./img/coding.svg" alt="Code Icon">
+                        <img src="{{ asset('img/coding.svg') }}" alt="Code Icon">
                         Projects
                     </a>
 
@@ -109,11 +109,11 @@
                                         Updates
                                     </a> -->
                     <a href="https://anniedotexe.mypixieset.com/" class="footer-button">
-                        <img src="{{ asset("img/camera.svg") }}" alt="Camera Icon">
+                        <img src="{{ asset('img/camera.svg') }}" alt="Camera Icon">
                         Photos
                     </a>
                     <a href="mailto:anniewu2303@gmail.com" class="footer-button">
-                        <img src="{{ asset("img/email.svg") }}" alt="Email Icon">
+                        <img src="{{ asset('img/email.svg') }}" alt="Email Icon">
                         Contact
                     </a>
                 </div>

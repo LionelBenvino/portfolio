@@ -7,7 +7,7 @@ Home
         <section id="home">
             <div class="landing-page-details">
                 <h1 class="small-title">Hi,</h1>
-                <h2 class="big-title">I'm <span class="my-name pink">Annie</span></h2>
+                <h2 class="big-title">I'm <span class="my-name pink">Lionel</span></h2>
                 <h3 class="medium-title"><em>Quality Assurance Engineer @ <a class="pink"
                             href="https://get.popmenu.com/">Popmenu</a></em></h3>
                 <!-- <div class="short-bio">
@@ -175,7 +175,7 @@ Home
         </section>
         <div class="cta-container">
             <a href="/projects" class="cta">
-                <img src="./img/coding.svg" alt="Code Icon">
+                <img src="{{ asset ('img/coding.svg') }}" alt="Code Icon">
                 <span>Explore More</span>
             </a>
         </div>
