@@ -15,34 +15,34 @@ class GeneralController extends Controller
     public function index()
     {
         return view("welcome", [
-            "user" => Setting::first(),
-            "projects" => Project::latest()->take(6)->get(),
+           // "user" => Setting::first(),
+           // "projects" => Project::latest()->take(6)->get(),
         ]);
     }
 
     public function about()
     {
         return view("about",[
-            "user" => Setting::first(),
+           /*  "user" => Setting::first(),
             "educations" => Education::get(),
             "experiences" => Experience::get(),
-            "techstasks" => TechStack::get(),
+            "techstasks" => TechStack::get(), */
         ]);
     }
 
     public function projects()
     {
         return view("projects",[
-            "user" => Setting::first(),
-            "projects" => Project::latest()->get(),
+            /* "user" => Setting::first(),
+            "projects" => Project::latest()->get(), */
         ]);
     }
 
     public function photos()
     {
         return view("photos",[
-            "user" => Setting::first(),
-            "photos" => Image::latest()->get(),
+           /*  "user" => Setting::first(),
+            "photos" => Image::latest()->get(), */
         ]);
     }
 }

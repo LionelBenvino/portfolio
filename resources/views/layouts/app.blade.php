@@ -53,9 +53,9 @@
             <nav class="nav">
                 <div class="toggle"><i class="fas fa-bars"></i></div>
                 <ul class="nav-menu">
-                    <li class="nav-item"><a href="/about">About</a></li>
-                    <li class="nav-item"><a href="/projects">Projects</a></li>
-                    <li class="nav-item"><a href="https://anniedotexe.mypixieset.com/">Photos</a>
+                    <li class="nav-item"><a href="{{ route('about') }}">About</a></li>
+                    <li class="nav-item"><a href="{{ route('projects') }}">Projects</a></li>
+                    <li class="nav-item"><a href="{{ route('photos') }}">Photos</a>
                     </li>
                 </ul>
             </nav>
@@ -112,7 +112,7 @@
                         <img src="{{ asset('img/camera.svg') }}" alt="Camera Icon">
                         Photos
                     </a>
-                    <a href="mailto:anniewu2303@gmail.com" class="footer-button">
+                    <a href="mailto:lionelbenvino@gmail.com" class="footer-button">
                         <img src="{{ asset('img/email.svg') }}" alt="Email Icon">
                         Contact
                     </a>
