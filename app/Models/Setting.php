@@ -15,7 +15,7 @@ class Setting extends Model
         "username",
         "linkedin_url",
         "github_url",
-        "youyube_url",
+        "youtube_url",
         "hero_gif",
         "email",
         "phone",

@@ -30,12 +30,16 @@ class SettingResource extends Resource
                 Forms\Components\TextInput::make('username')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('linkedin_url')
+                    ->url()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('github_url')
+                    ->url()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('youyube_url')
+                Forms\Components\TextInput::make('youtube_url')
+                    ->url()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('hero_gif')
+                    ->url()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('email')
                     ->email()
@@ -66,7 +70,7 @@ class SettingResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('github_url')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('youyube_url')
+                Tables\Columns\TextColumn::make('youtube_url')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('hero_gif')
                     ->searchable(),

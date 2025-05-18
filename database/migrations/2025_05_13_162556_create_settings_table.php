@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("username")->nullable();
             $table->string("linkedin_url")->nullable();
             $table->string("github_url")->nullable();
-            $table->string("youyube_url")->nullable();
+            $table->string("youtube_url")->nullable();
             $table->string("hero_gif")->nullable();
             $table->string("email")->nullable();
             $table->string("phone")->nullable();
