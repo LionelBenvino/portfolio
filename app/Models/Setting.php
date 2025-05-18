@@ -23,4 +23,8 @@ class Setting extends Model
         "location",
         "languages",
     ];
+
+    protected $casts = [
+        'languages' => 'array',
+    ];
 }
