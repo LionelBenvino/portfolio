@@ -205,6 +205,29 @@ class SettingResource extends Resource
             ]);
     }
 
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                Tables\Columns\TextColumn::make('username'),
+                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('email'),
+                Tables\Columns\TextColumn::make('location'),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime(),
+            ])
+            ->filters([
+                //
+            ])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\DeleteBulkAction::make(),
+            ]);
+    }
+
     public static function getRelations(): array
     {
         return [
