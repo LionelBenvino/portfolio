@@ -24,12 +24,16 @@ class ProjectResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
+                    ->columnSpan(2)
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
+                    ->columnSpan(2)
                     ->image(),
                 Forms\Components\TextInput::make('url')
+                    ->url()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('keywords')
+                    ->label('separated by,')
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->columnSpanFull(),
