@@ -24,8 +24,10 @@ class EducationResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('education_degree')
+                    ->columnSpanFull()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('education_location')
+                    ->columnSpanFull()
                     ->maxLength(255),
                 Forms\Components\Textarea::make('education_achievements')
                     ->columnSpanFull(),
