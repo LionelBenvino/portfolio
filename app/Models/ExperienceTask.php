@@ -13,7 +13,7 @@ class ExperienceTask extends Model
     protected $fillable = [
 
         "title",
-        "task",
+        "description",
         "experience_id",
     ];
 

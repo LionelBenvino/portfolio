@@ -25,12 +25,14 @@ class ExperienceTaskResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->required()
+                    ->columnSpanFull()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('description')
-                    ->required()
+                Forms\Components\TextInput::make('description')->default('')
+                    ->columnSpanFull()
                     ->maxLength(255),
                 Forms\Components\Select::make('experience_id')
-                    ->relationship('experience', 'id')
+                    ->relationship('experience', 'role')
+                    ->columnSpanFull()
                     ->required(),
             ]);
     }
@@ -41,15 +43,13 @@ class ExperienceTaskResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('description')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('experience.id')
+                Tables\Columns\TextColumn::make('experience.role')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->toggleable(isToggledHiddenByDefault: false),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("end_date");
             $table->string("company")->nullable();
             $table->string("company_url")->nullable();
-            $table->enum("job_type",["remote","onsite"]);
+            $table->enum("job_type",["remote","onsite","hibryd"]);
             $table->timestamps();
         });
     }

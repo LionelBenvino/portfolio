@@ -25,17 +25,22 @@ class ExperienceResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('role')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('start_date')
-                    ->required()
-                    ->maxLength(255),
+                Forms\Components\DatePicker::make('start_date')
+                    ->required(),
                 Forms\Components\TextInput::make('end_date')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('company')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('company_url')
+                    ->url()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('job_type')
+                Forms\Components\Select::make('job_type')
+                    ->options([
+                        "remote" => "Remote",
+                        "onsite" => "on-Site",
+                        "hibryd" => "Hibryd"
+                    ])
                     ->required(),
             ]);
     }
