@@ -38,7 +38,7 @@ Home
             </ul>
         </div>
     </section>
-    @foreach ($projects as $project)
+
 
     <section class="projects" id="select-projects">
         <h2>Select Projects</h2>
@@ -47,9 +47,11 @@ Home
             You can find more on <a class="hyperlink"
                 href="{{$user->github_url}}">GitHub</a>.
         </p>
+
         <div class="project-cards-container">
+            @foreach ($projects as $project)
             <div class="card">
-                <img src="./img/project-preview/nunflix-preview.png"
+                <img src="{{"storage/".$project->image }}"
                     alt="Project Preview Screenshot" class="card-preview-img">
                 <div class="card-info">
                     <div class="title-and-links">
@@ -78,9 +80,10 @@ Home
                     </p>
                 </div>
             </div>
+            @endforeach
         </div>
     </section>
-    @endforeach
+
 
     <div class="cta-container">
         <a href="/projects" class="cta">

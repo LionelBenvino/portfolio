@@ -8,20 +8,22 @@ em {
 }
 
 .project-cards-container {
+    
     margin-top: 50px;
     height: fit-content;
     height: -moz-fit-content;
 }
 
 .card {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     color: #1D263B;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.card:not(:last-child) {
-    margin: 0 auto 2em auto;
-}
+
 
 .card-preview-img {
     max-width: 100%;
@@ -102,7 +104,8 @@ em {
 
 @media only screen and (min-width: 768px) {
     .project-cards-container {
-        column-count: 2;
-        column-gap: 2em;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2em;
     }
 }
