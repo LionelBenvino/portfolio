@@ -15,8 +15,8 @@ class GeneralController extends Controller
     public function index()
     {
         return view("welcome", [
-           // "user" => Setting::first(),
-           // "projects" => Project::latest()->take(6)->get(),
+           "user" => Setting::first(),
+           "projects" => Project::latest()->take(6)->get(),
         ]);
     }
 

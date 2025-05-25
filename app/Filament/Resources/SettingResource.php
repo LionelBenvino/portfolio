@@ -38,7 +38,7 @@ class SettingResource extends Resource
                 Forms\Components\TextInput::make('github_url')
                     ->url()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('insta_url')
+                Forms\Components\TextInput::make('youtube_url')
                     ->url()
                     ->maxLength(255),
                 FileUpload::make('hero_gif')
