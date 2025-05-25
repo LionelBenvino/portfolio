@@ -18,12 +18,9 @@ em {
     display: flex;
     flex-direction: column;
     color: #1D263B;
-    background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
-
-
 
 .card-preview-img {
     max-width: 100%;
