@@ -33,14 +33,16 @@ class GeneralController extends Controller
     public function projects()
     {
         return view("projects", [
-            /* "user" => Setting::first(),
-            "projects" => Project::latest()->get(), */]);
+            "user" => Setting::first(),
+            "projects" => Project::latest()->get(),
+        ]);
     }
 
     public function photos()
     {
         return view("photos", [
-            /*  "user" => Setting::first(),
-            "photos" => Image::latest()->get(), */]);
+            "user" => Setting::first(),
+            "photos" => Image::latest()->get(),
+        ]);
     }
 }
