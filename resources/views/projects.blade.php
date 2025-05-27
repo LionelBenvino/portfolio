@@ -41,7 +41,7 @@
                                     @endforeach
                                 </div>
                                 <p class="project-description">
-                                    {{ $project->descriptions }}
+                                    {{ $project->description }}
                                 </p>
                             </div>
                         </div>
