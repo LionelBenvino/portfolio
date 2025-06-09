@@ -22,6 +22,10 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
 # Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
+# Instalamos las dependencias PHP con Composer
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+RUN cp .env.example .env && php artisan key:generate
+
 # Copiamos los archivos de Laravel al contenedor
 WORKDIR /var/www/html
 COPY . /var/www/html/

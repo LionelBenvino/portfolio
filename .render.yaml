@@ -4,5 +4,4 @@ services:
     env: docker
     plan: free
     autoDeploy: true
-    buildCommand: "composer install && php artisan migrate --force"
-    startCommand: "apache2-foreground" 
+    startCommand: "apache2-foreground"
