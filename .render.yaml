@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: portfolio-laravel
-    env: docker
-    plan: free
-    autoDeploy: true
-    startCommand: "apache2-foreground"
