@@ -218,6 +218,8 @@ h4, h5 {
 
     .card-info {
         width: 40%;
+        background-color: transparent !important;
+        box-shadow: none !important;
     }
 
     .card-description {
