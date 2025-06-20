@@ -72,7 +72,7 @@
                     <div class="education-experience-card">
                         <div class="card-info">
                             <h4 class="green">{{ $education->education_degree }}</h4>
-                            <p>{{ $education->education_location }}</p>
+                            <h6>{{ $education->education_location }}</h6>
                         </div>
                         <div class="card-description">
                             <h5>Achievements</h5>
