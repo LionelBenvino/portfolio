@@ -56,12 +56,11 @@ This project was based on [Tauseed Zaman's Laravel Portfolio](https://github.com
 ### **1. Clone the Repository**  
 
 ```bash
-# Clone the repository
 git clone https://github.com/LionelBenvino/portfolio.git
 cd portfolio
 ```
-```bash
 # Copy the .env file and configure database and credentials
+```bash
 cp .env.example .env
 ```
 
