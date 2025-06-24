@@ -59,7 +59,7 @@ This project was based on [Tauseed Zaman's Laravel Portfolio](https://github.com
 git clone https://github.com/LionelBenvino/portfolio.git
 cd portfolio
 ```
-# Copy the .env file and configure database and credentials
+### Copy the .env file and configure database and credentials
 ```bash
 cp .env.example .env
 ```
