@@ -6,7 +6,7 @@ A modern, responsive portfolio website built with **Laravel**, **Blade**, and **
 
 ## 🚀 Live Demo
 
-🖥️ [View Live Site](http://http://89.168.18.215/)
+🖥️ [View Live Site](http://89.168.18.215/)
 
 > The admin panel is built using FilamentPHP and can be accessed at `/admin` (with proper authentication).
 
