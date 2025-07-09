@@ -33,7 +33,7 @@ class ProjectResource extends Resource
                     ->url()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('keywords')
-                    ->label('Keywords')
+                    ->label('Keywords (separated by commas)')
                     ->maxLength(255),
                 Forms\Components\Textarea::make('description')
                     ->columnSpanFull(),
