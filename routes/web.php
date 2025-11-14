@@ -18,3 +18,5 @@ Route::get('/', [GeneralController::class, "index"])->name("index");
 Route::get('/about', [GeneralController::class, "about"])->name("about");
 Route::get('/projects', [GeneralController::class, "projects"])->name("projects");
 Route::get('/photos', [GeneralController::class, "photos"])->name("photos");
+Route::get('/blog', [\App\Http\Controllers\BlogController::class, 'index'])->name('blog');
+Route::get('/blog/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->name('blog.show');

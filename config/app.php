@@ -185,6 +185,7 @@ return [
         /*
          * Package Service Providers...
          */
+	Spatie\LaravelMarkdown\MarkdownServiceProvider::class,
 
         /*
          * Application Service Providers...

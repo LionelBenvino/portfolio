@@ -46,6 +46,12 @@ class ImageResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('markdown')
+                    ->label('Markdown')
+                    ->state(fn($record) => '![](/storage/' . $record->image . ')')
+                    ->copyable()
+                    ->copyMessage('Copiado!')
+                    ->copyMessageDuration(1500),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
