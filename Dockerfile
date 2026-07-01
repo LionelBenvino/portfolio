@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     libicu-dev \
     && docker-php-ext-install pdo pdo_mysql zip gd intl dom
 
-# Habilitar mod_rewrite para Laravel
+# Habilitar mod_rewrite para Laravel (el TLS lo termina Traefik, no Apache)
 RUN a2enmod rewrite
 
 # Instalar Composer
@@ -36,7 +36,7 @@ RUN composer install --no-dev --optimize-autoloader && \
     php artisan route:clear && \
     php artisan view:clear
 
-# Exponer puerto 80
+# Exponer puerto 80 (Traefik rutea a este puerto interno)
 EXPOSE 80
 
 CMD ["apache2-foreground"]

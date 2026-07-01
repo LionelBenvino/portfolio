@@ -3,34 +3,51 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "80:80"
+    restart: always
     depends_on:
       - db
     environment:
       APP_ENV: production
       APP_DEBUG: "false"
-      APP_KEY: 
-      APP_URL: http://89.168.18.215/
+      APP_KEY: ${APP_KEY}
+      APP_URL: https://lionelbenvino.xyz
       DB_CONNECTION: mysql
       DB_HOST: db
       DB_PORT: 3306
-      DB_DATABASE: laravel
-      DB_USERNAME: user
-      DB_PASSWORD: password
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - traefik-public
+      - internal
+    labels:
+      # El TLS y el ruteo los maneja Traefik (Let's Encrypt). No se bindean puertos al host.
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik-public"
+      - "traefik.http.routers.portfolio.entrypoints=websecure"
+      - "traefik.http.routers.portfolio.rule=Host(`lionelbenvino.xyz`) || Host(`www.lionelbenvino.xyz`)"
+      - "traefik.http.routers.portfolio.tls=true"
+      - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
+      - "traefik.http.services.portfolio.loadbalancer.server.port=80"
 
   db:
     image: mysql:8.0
     restart: always
     environment:
-      MYSQL_DATABASE: laravel
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-      MYSQL_ROOT_PASSWORD: root
-    ports:
-      - "3306:3306"
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    networks:
+      - internal
     volumes:
       - db_data:/var/lib/mysql
+
+networks:
+  traefik-public:
+    external: true
+  internal:
+    driver: bridge
 
 volumes:
   db_data:

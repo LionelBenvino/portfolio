@@ -8,6 +8,10 @@
 .env
 .env.backup
 .env.production
+.env.prod
+/certs/
+*.pem
+tokengithub.txt
 Homestead.json
 Homestead.yaml
 auth.json
