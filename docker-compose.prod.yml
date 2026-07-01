@@ -20,6 +20,9 @@ services:
     networks:
       - traefik-public
       - internal
+    volumes:
+      # Uploads de Filament: persisten en el host y sobreviven a los rebuilds.
+      - ./storage/app/public:/var/www/html/storage/app/public
     labels:
       # El TLS y el ruteo los maneja Traefik (Let's Encrypt). No se bindean puertos al host.
       - "traefik.enable=true"
