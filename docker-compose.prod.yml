@@ -10,7 +10,7 @@ services:
       APP_ENV: production
       APP_DEBUG: "false"
       APP_KEY: ${APP_KEY}
-      APP_URL: https://lionelbenvino.xyz
+      APP_URL: https://lionelbenvino.com
       DB_CONNECTION: mysql
       DB_HOST: db
       DB_PORT: 3306
@@ -28,7 +28,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik-public"
       - "traefik.http.routers.portfolio.entrypoints=websecure"
-      - "traefik.http.routers.portfolio.rule=Host(`lionelbenvino.xyz`) || Host(`www.lionelbenvino.xyz`)"
+      - "traefik.http.routers.portfolio.rule=Host(`lionelbenvino.com`) || Host(`www.lionelbenvino.com`)"
       - "traefik.http.routers.portfolio.tls=true"
       - "traefik.http.routers.portfolio.tls.certresolver=letsencrypt"
       - "traefik.http.services.portfolio.loadbalancer.server.port=80"
