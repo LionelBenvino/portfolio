@@ -1,8 +1,12 @@
+@php
+$user = App\Models\Setting::first();
+$metaDescription = $user->name . ' — ' . $user->title . '. Based in ' . $user->location . '.';
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>@yield("title")</title>
+    <title>@yield("title") | {{ $user->name }} — {{ $user->title }}</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -11,27 +15,24 @@
 
     <meta charset="UTF-8">
 
-    <meta property="og:title" content="Annie Wu" />
+    <meta property="og:title" content="{{ $user->name }} — {{ $user->title }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://anniew.xyz" />
-    <meta property="og:description" content="Hi! I'm Annie." />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:description" content="{{ $metaDescription }}" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:image" content="https://anniew.xyz/img/me-icon-smiling.png" />
+    <meta property="og:image" content="{{ url('storage/' . $user->hero_gif) }}" />
 
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Annie Wu">
-    <meta name="twitter:description" content="Hi! I'm Annie.">
-    <meta name="twitter:image" content="https://anniew.xyz/img/me-icon-smiling.png">
-    <meta name="twitter:site" content="@anniedotexe">
+    <meta name="twitter:title" content="{{ $user->name }} — {{ $user->title }}">
+    <meta name="twitter:description" content="{{ $metaDescription }}">
+    <meta name="twitter:image" content="{{ url('storage/' . $user->hero_gif) }}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="copyright" content="Annie Wu">
-    <meta name="description" content="Hi! I'm Annie.">
-    <meta name="keywords"
-        content="Annie Wu, Annie Wu Portfolio, Annie Wu Photography, photographer, developer, java, python, html, css, javascript, web developer, webdev, portfolio, quality assurance, qa engineer, quality assurance engineer">
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="author" content="{{ $user->name }}">
+    <meta name="description" content="{{ $metaDescription }}">
+    <meta name="robots" content="index, follow" />
 
-    <link rel="canonical" href="https://anniew.xyz" />
+    <link rel="canonical" href="{{ url()->current() }}" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,9 +47,6 @@
     <link rel="stylesheet" href="{{ asset('css/projects.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}" type="text/css">
 </head>
-@php
-$user = App\Models\Setting::first();
-@endphp
 
 <body>
     <header class="header">

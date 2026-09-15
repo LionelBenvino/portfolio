@@ -29,12 +29,14 @@ Home
                         <i class="fa-brands fa-github"></i>
                     </a>
                 </li>
-                <li class="social-link">
-                    <a href="{{$user->youtube_url}}" aria-label="Instagram"
-                        target="_blank">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                </li>
+                @if ($user->youtube_url)
+                    <li class="social-link">
+                        <a href="{{$user->youtube_url}}" aria-label="YouTube"
+                            target="_blank">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
     </section>
