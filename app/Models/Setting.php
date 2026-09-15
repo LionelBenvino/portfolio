@@ -13,6 +13,8 @@ class Setting extends Model
         "name",
         "title",
         "bio",
+        "cv_en",
+        "cv_it",
         "username",
         "linkedin_url",
         "github_url",

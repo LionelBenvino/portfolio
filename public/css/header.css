@@ -69,6 +69,40 @@ header {
     font-size: 2em;
 }
 
+.nav-cv {
+    display: none;
+}
+
+.active .nav-cv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
+    padding: 10px 20px;
+}
+
+.nav-cv-label {
+    font-size: 0.75em;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: #1D263B;
+    opacity: 0.6;
+}
+
+.nav-cv a {
+    display: inline;
+    width: auto;
+    padding: 0;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #1D263B;
+}
+
+.nav-cv-sep {
+    color: #1D263B;
+    opacity: 0.6;
+}
+
 @media only screen and (min-width: 768px) {
     .nav {
         display: flex;
@@ -98,5 +132,19 @@ header {
     }
     .toggle {
         display: none;
+    }
+    .nav-cv {
+        display: flex;
+        align-items: center;
+        gap: 0.4em;
+    }
+    .nav-cv-label {
+        color: #FFFFFF;
+    }
+    .nav-cv a {
+        color: #FFFFFF;
+    }
+    .nav-cv-sep {
+        color: #FFFFFF;
     }
 }

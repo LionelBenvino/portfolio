@@ -18,6 +18,8 @@ class SettingSeeder extends Seeder
                 'name'         => 'Lionel Benvino',
                 'title'        => 'Cloud & Infrastructure Engineer',
                 'bio'          => "Cloud & Infrastructure Engineer working across AWS, GCP and on-premise Linux environments. I run production infrastructure on AWS, build data pipelines on Google Cloud and deploy containerized services with Docker, Traefik and CI/CD.\n\nI work remotely from Italy in a cross-functional team of three, and I am preparing for the AWS Solutions Architect – Associate certification (target: Q4 2026). My background in Electronic Engineering and networking (VPN, firewalls, routing, MikroTik) helps me troubleshoot production issues across every layer, not just the application.",
+                'cv_en'        => null,
+                'cv_it'        => null,
                 'username'     => 'lionelbenvino',
                 'email'        => 'lbenvinoit@gmail.com',
                 'phone'        => null,

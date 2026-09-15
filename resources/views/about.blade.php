@@ -156,6 +156,20 @@
                     <i class="fa-solid fa-envelope"></i>
                     Email
                 </a>
+                @if ($user->cv_en)
+                    <a href="{{ asset('storage/' . $user->cv_en) }}" class="social-media-item" target="_blank"
+                        rel="noopener">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        CV (EN)
+                    </a>
+                @endif
+                @if ($user->cv_it)
+                    <a href="{{ asset('storage/' . $user->cv_it) }}" class="social-media-item" target="_blank"
+                        rel="noopener">
+                        <i class="fa-solid fa-file-arrow-down"></i>
+                        CV (IT)
+                    </a>
+                @endif
             </div>
         </section>
     </main>

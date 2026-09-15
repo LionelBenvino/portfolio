@@ -59,6 +59,22 @@ $metaDescription = $user->name . ' — ' . $user->title . '. Based in ' . $user-
                 <li class="nav-item"><a href="{{ route('blog') }}">Blog</a></li>
                <!-- <li class="nav-item"><a href="{{ route('photos') }}">Photos</a>-->
                 </li>
+                @if ($user->cv_en || $user->cv_it)
+                    <li class="nav-item nav-cv">
+                        <span class="nav-cv-label">CV</span>
+                        @if ($user->cv_en)
+                            <a href="{{ asset('storage/' . $user->cv_en) }}" target="_blank" rel="noopener"
+                                aria-label="Download CV in English">EN</a>
+                        @endif
+                        @if ($user->cv_en && $user->cv_it)
+                            <span class="nav-cv-sep" aria-hidden="true">&middot;</span>
+                        @endif
+                        @if ($user->cv_it)
+                            <a href="{{ asset('storage/' . $user->cv_it) }}" target="_blank" rel="noopener"
+                                aria-label="Download CV in Italian">IT</a>
+                        @endif
+                    </li>
+                @endif
             </ul>
         </nav>
     </header>
@@ -83,12 +99,14 @@ $metaDescription = $user->name . ' — ' . $user->title . '. Based in ' . $user-
                                 <i class="fa-brands fa-github"></i>
                             </a>
                         </li>
-                        <li class="social-link">
-                            <a href="{{ $user->youtube_url }}" aria-label="Youtube"
-                                target="_blank">
-                                <i class="fa-brands fa-youtube"></i>
-                            </a>
-                        </li>
+                        @if ($user->youtube_url)
+                            <li class="social-link">
+                                <a href="{{ $user->youtube_url }}" aria-label="YouTube"
+                                    target="_blank">
+                                    <i class="fa-brands fa-youtube"></i>
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
                 <span class="copyright"><i class="fa-regular fa-copyright"></i> {{$user->username }} -

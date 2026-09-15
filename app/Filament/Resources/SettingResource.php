@@ -35,6 +35,20 @@ class SettingResource extends Resource
                 Forms\Components\Textarea::make('bio')
                     ->rows(8)
                     ->columnSpanFull(),
+                FileUpload::make('cv_en')
+                    ->label('CV (English, PDF)')
+                    ->directory('cv')
+                    ->acceptedFileTypes(['application/pdf'])
+                    ->maxSize(5120)
+                    ->downloadable()
+                    ->preserveFilenames(),
+                FileUpload::make('cv_it')
+                    ->label('CV (Italian, PDF)')
+                    ->directory('cv')
+                    ->acceptedFileTypes(['application/pdf'])
+                    ->maxSize(5120)
+                    ->downloadable()
+                    ->preserveFilenames(),
                 Forms\Components\TextInput::make('linkedin_url')
                     ->url()
                     ->maxLength(255),
