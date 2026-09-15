@@ -57,7 +57,18 @@
                                 @endforeach ]
                             </p>
                         </div>
-                        
+
+                        @if ($user->bio)
+                            <div class="statement">
+                                <p class="input">
+                                    {{ $user->username }}.<span class="green">summary</span>
+                                </p>
+                                <p class="return">
+                                    {!! nl2br(e($user->bio)) !!}
+                                </p>
+                            </div>
+                        @endif
+
                         <div class="statement">
                             <p class="input bottom"><span></span></p>
                         </div>
@@ -135,10 +146,12 @@
                     <i class="fa-brands fa-github"></i>
                     GitHub
                 </a>
-                <a href="{{ $user->youtube_url }}" class="social-media-item">
-                    <i class="fa-brands fa-youtube"></i>
-                    YouTube
-                </a>
+                @if ($user->youtube_url)
+                    <a href="{{ $user->youtube_url }}" class="social-media-item">
+                        <i class="fa-brands fa-youtube"></i>
+                        YouTube
+                    </a>
+                @endif
                 <a href="mailto:{{ $user->email }}" class="social-media-item">
                     <i class="fa-solid fa-envelope"></i>
                     Email

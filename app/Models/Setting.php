@@ -12,6 +12,7 @@ class Setting extends Model
     protected $fillable = [
         "name",
         "title",
+        "bio",
         "username",
         "linkedin_url",
         "github_url",

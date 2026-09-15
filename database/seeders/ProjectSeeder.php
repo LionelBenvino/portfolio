@@ -10,60 +10,69 @@ class ProjectSeeder extends Seeder
     /**
      * Run the database seeds.
      *
-     * NOTE: "image" is nullable; preview screenshots are uploaded later through
-     * the Filament admin panel.
+     * NOTE: "image" values below are real filenames already present in the
+     * persistent storage; this seeder never overwrites uploaded images with
+     * null, so re-seeding stays safe for fresh installs.
      */
     public function run(): void
     {
         $projects = [
             [
-                'title'       => 'Transcription-as-a-Service',
-                'description' => 'Servizio di trascrizione automatica: Flask + Docker + AssemblyAI + yt-dlp su VPS, esposto via Cloudflare Tunnel e orchestrato con Google Apps Script.',
-                'url'         => null,
-                'keywords'    => 'Flask,Docker,AssemblyAI,Cloudflare,Python',
-            ],
-            [
-                'title'       => 'React PWA + Supabase self-hosted',
-                'description' => 'Web App React (PWA) con Supabase self-hosted, Google OAuth e CI/CD via GitHub Actions, deployata su VPS con reverse proxy Traefik.',
-                'url'         => null,
-                'keywords'    => 'React,PWA,Supabase,Google OAuth,GitHub Actions,Traefik',
-            ],
-            [
-                'title'       => 'WhatsApp Automation per cliniche',
-                'description' => 'Piattaforma di automazione dei messaggi WhatsApp per cliniche: n8n + Evolution API + Redis + PostgreSQL su home lab con Docker Compose.',
-                'url'         => null,
-                'keywords'    => 'n8n,Evolution API,Redis,PostgreSQL,Docker Compose',
-            ],
-            [
-                'title'       => 'Home Lab K3s',
-                'description' => 'Home lab con Kubernetes (K3s): deploy di applicazioni multi-container, Portainer e servizi esposti via Cloudflare Tunnels sotto dominio personale.',
-                'url'         => null,
-                'keywords'    => 'Kubernetes,K3s,Portainer,Cloudflare Tunnels,Docker',
-            ],
-            [
-                'title'       => 'Open WebUI con RAG',
-                'description' => 'Assistente AI personale basato su Open WebUI con RAG (ChromaDB), containerizzato e deployato su VPS.',
-                'url'         => null,
-                'keywords'    => 'Open WebUI,RAG,ChromaDB,Docker,AI',
+                'title'       => 'santafe2026.ar AWS Infrastructure',
+                'description' => 'Production AWS infrastructure for the institutional website of the 2026 South American Games in Santa Fe. I operate the stack (Application Load Balancer, EC2, RDS and EFS inside a VPC with IAM access control), handling deployments and maintenance through operational runbooks so the site can handle thousands of daily visits during event peaks.',
+                'url'         => 'https://santafe2026.ar',
+                'keywords'    => 'AWS,EC2,RDS,EFS,ALB,VPC,IAM',
+                'image'       => 'santafe2026-aws-architecture.svg',
             ],
             [
                 'title'       => 'GCP Data Pipeline',
-                'description' => 'Pipeline dati su Google Cloud: Cloud Function + Docker che consolida ~130 Google Sheets in file Parquet su Cloud Storage e li carica in BigQuery via Cloud Scheduler.',
+                'description' => 'Production pipeline consolidating around 130 Google Sheets into BigQuery. The original Apps Script job hit recurring timeouts after more than 30 minutes; I rebuilt it in Python on Cloud Run, reading the sheets in parallel with the batchGet API and writing Parquet files to Cloud Storage. It now finishes in 7 minutes and runs every 15 minutes.',
                 'url'         => null,
-                'keywords'    => 'GCP,Cloud Functions,BigQuery,Cloud Storage,Parquet,Cloud Scheduler',
+                'keywords'    => 'GCP,Cloud Run,Cloud Scheduler,Cloud Storage,BigQuery,Python,Parquet',
+                'image'       => 'gcp-data-pipeline.svg',
             ],
             [
-                'title'       => 'Dynamic Portfolio Website',
-                'description' => 'Questo sito: portfolio gestito da CMS, costruito con Laravel, Blade e FilamentPHP, containerizzato con Docker e deployato su VPS.',
-                'url'         => 'https://lionelbenvino.xyz',
-                'keywords'    => 'Laravel,FilamentPHP,Blade,Docker,MySQL',
+                'title'       => 'Transcription-as-a-Service',
+                'description' => 'Automated transcription service built as a Python web application. It downloads media with yt-dlp, sends audio to AssemblyAI, and presents transcripts directly in the browser.',
+                'url'         => null,
+                'keywords'    => 'Python,yt-dlp,AssemblyAI,Docker',
+                'image'       => 'transcription-architecture.svg',
+            ],
+            [
+                'title'       => 'K3s Home Lab',
+                'description' => 'Kubernetes (K3s) home lab for deploying multi-container applications, Portainer, and services exposed through Cloudflare Tunnels under a personal domain.',
+                'url'         => null,
+                'keywords'    => 'Kubernetes,K3s,Portainer,Cloudflare Tunnels,Docker',
+                'image'       => 'k3s-vote.png',
+            ],
+            [
+                'title'       => 'WhatsApp Automation for Clinics',
+                'description' => 'WhatsApp messaging automation platform for clinics, using n8n, Evolution API, Redis, and PostgreSQL on a Docker Compose home lab.',
+                'url'         => null,
+                'keywords'    => 'n8n,Evolution API,Redis,PostgreSQL,Docker Compose',
+                'image'       => 'whatsapp-automation-architecture.svg',
+            ],
+            [
+                'title'       => 'Frontend Portfolio Website',
+                'description' => 'CMS-driven portfolio website built with Laravel, Blade, and Filament. Its authenticated admin panel lets the owner create, update, and manage public content.',
+                'url'         => 'https://lionelbenvino.com',
+                'keywords'    => 'Laravel,Filament,Blade,MySQL,Docker',
+                'image'       => 'portfolio-home.png',
             ],
         ];
+
+        Project::query()
+            ->whereIn('title', ['React PWA + Supabase self-hosted', 'Open WebUI con RAG'])
+            ->delete();
+
+        Project::query()
+            ->where('title', 'Dynamic Portfolio Website')
+            ->update(['title' => 'Frontend Portfolio Website']);
 
         foreach ($projects as $project) {
             Project::updateOrCreate(
                 ['title' => $project['title']],
-                $project + ['image' => null],
+                $project,
             );
         }
     }

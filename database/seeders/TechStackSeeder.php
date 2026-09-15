@@ -10,22 +10,24 @@ class TechStackSeeder extends Seeder
     /**
      * Run the database seeds.
      *
-     * NOTE: "image" is NOT NULL in the schema; we seed it empty and the icon
-     * for each skill is uploaded later through the Filament admin panel.
+     * NOTE: "image" is NOT NULL in the schema; we only seed it empty on first
+     * creation (firstOrCreate) so re-seeding never overwrites an icon already
+     * uploaded through the Filament admin panel.
      */
     public function run(): void
     {
+        TechStack::query()->whereIn('name', ['Jenkins', 'Ansible', 'Terraform'])->delete();
+
         $stacks = [
             ['name' => 'Docker',             'url' => 'https://www.docker.com'],
             ['name' => 'Docker Compose',     'url' => 'https://docs.docker.com/compose'],
             ['name' => 'Traefik',            'url' => 'https://traefik.io'],
+            ['name' => 'Nginx',              'url' => 'https://nginx.org'],
             ['name' => 'Kubernetes (K3s)',   'url' => 'https://k3s.io'],
             ['name' => 'GitHub Actions',     'url' => 'https://github.com/features/actions'],
-            ['name' => 'Jenkins',            'url' => 'https://www.jenkins.io'],
+            ['name' => 'Git',                'url' => 'https://git-scm.com'],
             ['name' => 'Google Cloud',       'url' => 'https://cloud.google.com'],
             ['name' => 'AWS',                'url' => 'https://aws.amazon.com'],
-            ['name' => 'Ansible',            'url' => 'https://www.ansible.com'],
-            ['name' => 'Terraform',          'url' => 'https://www.terraform.io'],
             ['name' => 'Linux',              'url' => 'https://ubuntu.com'],
             ['name' => 'MikroTik',           'url' => 'https://mikrotik.com'],
             ['name' => 'Python',             'url' => 'https://www.python.org'],
@@ -41,7 +43,7 @@ class TechStackSeeder extends Seeder
         ];
 
         foreach ($stacks as $stack) {
-            TechStack::updateOrCreate(
+            TechStack::firstOrCreate(
                 ['name' => $stack['name']],
                 ['url' => $stack['url'], 'image' => ''],
             );

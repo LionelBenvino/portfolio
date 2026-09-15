@@ -32,6 +32,9 @@ class SettingResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('title')
                     ->maxLength(255),
+                Forms\Components\Textarea::make('bio')
+                    ->rows(8)
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('linkedin_url')
                     ->url()
                     ->maxLength(255),
