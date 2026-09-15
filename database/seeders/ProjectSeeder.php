@@ -46,13 +46,6 @@ class ProjectSeeder extends Seeder
                 'image'       => 'k3s-vote.png',
             ],
             [
-                'title'       => 'WhatsApp Automation for Clinics',
-                'description' => 'WhatsApp messaging automation platform for clinics, using n8n, Evolution API, Redis, and PostgreSQL on a Docker Compose home lab.',
-                'url'         => null,
-                'keywords'    => 'n8n,Evolution API,Redis,PostgreSQL,Docker Compose',
-                'image'       => 'whatsapp-automation-architecture.svg',
-            ],
-            [
                 'title'       => 'Frontend Portfolio Website',
                 'description' => 'CMS-driven portfolio website built with Laravel, Blade, and Filament. Its authenticated admin panel lets the owner create, update, and manage public content.',
                 'url'         => 'https://lionelbenvino.com',
